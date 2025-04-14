@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptocurrency Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><i class="fas fa-coins"></i> Cryptocurrency Tracker</h1>
+                <div class="theme-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span>Toggle Dark Mode</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="preferences-panel">
+                <div class="preference-group">
+                    <h3>Display Settings</h3>
+                    <div class="preference-options">
+                        <button id="toggle24h" class="pref-btn"><i class="fas fa-chart-bar"></i> 24h Change</button>
+                        <button id="toggleChart" class="pref-btn"><i class="fas fa-chart-line"></i> Charts</button>
+                        <button id="toggleVolume" class="pref-btn"><i class="fas fa-chart-pie"></i> Volume</button>
+                    </div>
+                </div>
+
+                <div class="preference-group">
+                    <h3>Sort Options</h3>
+                    <select id="sortBy" class="pref-select">
+                        <option value="market_cap">Sort by Market Cap</option>
+                        <option value="price">Sort by Price</option>
+                        <option value="name">Sort by Name</option>
+                        <option value="volume">Sort by Volume</option>
+                        <option value="change">Sort by 24h Change</option>
+                    </select>
+                </div>
+
+                <div class="preference-group">
+                    <h3>Favorites</h3>
+                    <div class="favorites-list" id="favoritesList">
+                        <!-- Favorites will be added here -->
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="comparison-section">
+                <h2><i class="fas fa-balance-scale"></i> Comparison</h2>
+                <div class="comparison-controls">
+                    <button id="clearComparison" class="action-btn"><i class="fas fa-trash"></i> Clear All</button>
+                    <button id="exportComparison" class="action-btn"><i class="fas fa-download"></i> Export Data</button>
+                </div>
+                <div id="comparison-container" class="comparison-grid">
+                    <!-- Comparison cards will be added here -->
+                </div>
+            </section>
+
+            <section class="crypto-list">
+                <h2><i class="fas fa-landmark"></i> Market Overview</h2>
+                <div class="market-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-globe"></i>
+                        <span>Total Market Cap</span>
+                        <span id="totalMarketCap" class="stat-value">$0</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>24h Volume</span>
+                        <span id="totalVolume" class="stat-value">$0</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-bitcoin"></i>
+                        <span>BTC Dominance</span>
+                        <span id="btcDominance" class="stat-value">0%</span>
+                    </div>
+                </div>
+                <div id="crypto-container" class="crypto-grid">
+                    <!-- Crypto cards will be added here -->
+                </div>
+            </section>
+        </main>
+
+        <div class="chart-modal" id="chartModal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3 id="chartTitle">Price Chart</h3>
+                <canvas id="priceChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

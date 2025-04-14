@@ -167,6 +167,20 @@ h1 {
     font-size: 1.1em;
 }
 
+.crypto-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.crypto-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 .crypto-card .price {
     font-size: 1.5em;
     font-weight: bold;
@@ -288,11 +302,21 @@ h1 {
 
 .favorite-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    padding: 8px;
     background: var(--card-background);
-    padding: 6px 10px;
     border-radius: var(--border-radius);
+    margin-bottom: 8px;
+    gap: 10px;
+}
+
+.favorite-item .crypto-logo {
+    width: 20px;
+    height: 20px;
+}
+
+.favorite-item span {
+    flex: 1;
 }
 
 .no-favorites {

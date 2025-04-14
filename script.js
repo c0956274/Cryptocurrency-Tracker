@@ -293,6 +293,7 @@ function renderFavorites() {
     favoritesList.innerHTML = favoriteCryptos.length > 0 ? 
         favoriteCryptos.map(crypto => `
             <div class="favorite-item">
+                <img src="${crypto.image}" alt="${crypto.name} logo" class="crypto-logo">
                 <span>${crypto.name}</span>
                 <button class="remove-favorite" onclick="toggleFavorite('${crypto.id}')">
                     <i class="fas fa-star"></i>
@@ -422,7 +423,10 @@ function createCryptoCard(crypto) {
     // Build the card HTML with conditional sections based on user preferences
     return `
         <div class="crypto-card ${isSelected ? 'selected' : ''} ${isFavorite ? 'favorite' : ''}" data-id="${crypto.id}">
-            <h3>${crypto.name} <span>(${crypto.symbol.toUpperCase()})</span></h3>
+            <div class="crypto-header">
+                <img src="${crypto.image}" alt="${crypto.name} logo" class="crypto-logo">
+                <h3>${crypto.name} <span>(${crypto.symbol.toUpperCase()})</span></h3>
+            </div>
             <div class="price">
                 $${crypto.current_price.toLocaleString()}
             </div>
@@ -475,7 +479,10 @@ function createComparisonCard(crypto) {
     // Comparison cards always show all data regardless of toggle settings
     return `
         <div class="crypto-card comparison-card ${isFavorite ? 'favorite' : ''}" data-id="${crypto.id}">
-            <h3>${crypto.name} <span>(${crypto.symbol.toUpperCase()})</span></h3>
+            <div class="crypto-header">
+                <img src="${crypto.image}" alt="${crypto.name} logo" class="crypto-logo">
+                <h3>${crypto.name} <span>(${crypto.symbol.toUpperCase()})</span></h3>
+            </div>
             <div class="price">
                 $${crypto.current_price.toLocaleString()}
             </div>
